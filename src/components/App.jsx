@@ -18,6 +18,11 @@ function App() {
   const [coords, setCoords] = useState(null);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [selectedRadioButton, setSelectedRadioButton] = useState("");
+
+  const handleRadioChange = (event) => {
+    setSelectedRadioButton(event.target.value);
+  };
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -114,6 +119,8 @@ function App() {
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
             <input
               name="weather"
+              checked={selectedRadioButton === "Hot"}
+              onChange={handleRadioChange}
               id="hot"
               type="radio"
               className="modal__radio_input"
@@ -126,6 +133,8 @@ function App() {
             className="modal__label modal__label_type_radio"
           >
             <input
+              onChange={handleRadioChange}
+              checked={selectedRadioButton === "Warm"}
               id="warm"
               name="weather"
               type="radio"
@@ -140,6 +149,8 @@ function App() {
           >
             <input
               id="cold"
+              checked={selectedRadioButton === "Cold"}
+              onChange={handleRadioChange}
               name="weather"
               type="radio"
               className="modal__radio_input"

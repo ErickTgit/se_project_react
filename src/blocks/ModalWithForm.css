@@ -77,6 +77,7 @@
 
 .modal__radio_input {
   accent-color: black;
+  cursor: pointer;
 }
 
 .modal__input:focus {
@@ -84,6 +85,8 @@
 }
 
 .modal__radio-buttons {
+  font-weight: 700;
+  font-family: Cabinet Grotesk, sans-serif;
   border: none;
   padding: 0;
   padding-bottom: 32px;
@@ -100,7 +103,7 @@
   width: 124px;
   border: none;
   cursor: pointer;
-  background-color: #0000004d;
+  background-color: black;
 }
 
 .modal__submit-text {
@@ -108,13 +111,13 @@
   font-weight: 700;
 }
 
-.modal__radio-buttons {
-  font-weight: 700;
-  font-family: Cabinet Grotesk, sans-serif;
-}
-
 .modal__label_type_radio {
   padding-bottom: 8px;
+  color: gray;
+}
+
+.modal__label_type_radio input[type="radio"]:checked + a {
+  color: black;
 }
 
 .modal__legend {
