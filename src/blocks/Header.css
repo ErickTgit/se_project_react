@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  font-family: Cabinet Grotesk, sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 20px;
+  padding: 32px 0 28px;
+}
+
+.header__add-clothes-btn {
+  margin-left: auto;
+  border: none;
+  margin-right: 20px;
+  font-weight: inherit;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.header__add-clothes-btn:hover {
+  color: #00000099;
+}
+
+.header__username {
+  padding-right: 12px;
+  margin: 0;
+}
+
+.header__date-and-location {
+  padding-left: 24px;
+  margin: 0;
+}
+
+.header__user-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}

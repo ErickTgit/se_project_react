@@ -1,0 +1,125 @@
+.modal {
+  position: fixed;
+  font-family: Cabinet Grotesk, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  align-items: center;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+}
+
+.modal__opened {
+  transition-delay: 0s;
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  padding-bottom: 24px;
+}
+
+.modal__input-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  padding-bottom: 8px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background-image: url("../assets/close.svg");
+  cursor: pointer;
+  background-color: transparent;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.modal__content {
+  background-color: #fff;
+  position: relative;
+  min-width: 468px;
+  max-height: 400px;
+  padding: 28px 28px 36px;
+  border-radius: 10px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__input {
+  padding: 0;
+  display: block;
+  border: none;
+  line-height: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+
+  width: 100%;
+}
+
+.modal__radio_input {
+  accent-color: black;
+}
+
+.modal__input:focus {
+  outline: none;
+}
+
+.modal__radio-buttons {
+  border: none;
+  padding: 0;
+  padding-bottom: 32px;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+}
+
+.modal__submit {
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  height: 36px;
+  width: 124px;
+  border: none;
+  cursor: pointer;
+  background-color: #0000004d;
+}
+
+.modal__submit-text {
+  font-family: Cabinet Grotesk, sans-serif;
+  font-weight: 700;
+}
+
+.modal__radio-buttons {
+  font-weight: 700;
+  font-family: Cabinet Grotesk, sans-serif;
+}
+
+.modal__label_type_radio {
+  padding-bottom: 8px;
+}
+
+.modal__legend {
+  padding-bottom: 12px;
+}
+.modal__span {
+  padding-bottom: 24px;
+}

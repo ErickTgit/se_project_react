@@ -1,0 +1,26 @@
+.page {
+  background-color: #f3f3f3;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.page__content {
+  min-height: 100vh;
+  padding: 0 40px;
+  position: relative;
+}
+
+.modal__input_type_error {
+  border-bottom: 1px solid #ff0000;
+}
+
+.modal__error {
+  display: flex;
+  font-size: 12px;
+  line-height: normal;
+  color: #ff0000;
+  flex-wrap: wrap;
+  height: 0.01vh;
+}
