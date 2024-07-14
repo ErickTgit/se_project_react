@@ -85,7 +85,6 @@ function App() {
       >
         <h2 className="modal__input-title">Name</h2>
         <label htmlFor="name" className="modal__label">
-          Name
           <input
             type="text"
             className="modal__input"
@@ -100,7 +99,6 @@ function App() {
 
         <h2 className="modal__input-title">Image</h2>
         <label htmlFor="imageUrl" className="modal__label">
-          Image URL
           <input
             type="text"
             className="modal__input"
