@@ -14,7 +14,7 @@
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
-.modal__opened {
+.modal_opened {
   transition-delay: 0s;
   opacity: 1;
   visibility: visible;

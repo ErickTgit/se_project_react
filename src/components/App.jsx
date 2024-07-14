@@ -63,10 +63,7 @@ function App() {
 
     if (activeModal) {
       document.addEventListener("keydown", handleEscapeKey);
-    } else {
-      document.removeEventListener("keydown", handleEscapeKey);
     }
-
     return () => {
       document.removeEventListener("keydown", handleEscapeKey);
     };
@@ -81,34 +78,35 @@ function App() {
       </div>
 
       <ModalWithForm
+        isOpen={activeModal === "add-garment"}
         buttonText={"Add Garment"}
         title={"New Garment"}
-        activeModal={activeModal}
         onClose={handleCloseModal}
       >
         <h2 className="modal__input-title">Name</h2>
         <label htmlFor="name" className="modal__label">
-          {""}
+          Name
           <input
             type="text"
             className="modal__input"
             id="name"
             placeholder="Name"
-          ></input>{" "}
+          />
           <span
             className="modal__span modal__error"
             id="input-type-url-error"
           ></span>
         </label>
+
         <h2 className="modal__input-title">Image</h2>
         <label htmlFor="imageUrl" className="modal__label">
-          {""}
+          Image URL
           <input
             type="text"
             className="modal__input"
             id="imageUrl"
-            placeholder="Image Url"
-          ></input>{" "}
+            placeholder="Image URL"
+          />
           <span
             className="modal__span modal__error"
             id="input-type-url-error"
