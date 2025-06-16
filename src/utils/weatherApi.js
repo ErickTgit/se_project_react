@@ -5,7 +5,7 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
     if (res.ok) {
       return res.json();
     } else {
-      return promise.reject(`Error: ${res.status}`);
+      return Promise.reject(`Error: ${res.status}`);
     }
   });
 };
@@ -13,7 +13,10 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
 export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
-  result.temp = { F: data.main.temp };
+  result.temp = {
+    F: data.main.temp,
+    C: (((data.main.temp - 32) * 5) / 9).toFixed(2),
+  };
   result.type = getWeatherType(data.main.temp);
   result.condition = data.weather[0].main.toLowerCase();
   result.isDay = isDay(data.sys, Date.now());

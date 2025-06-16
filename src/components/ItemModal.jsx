@@ -2,8 +2,16 @@ import "../blocks/ItemModal.css";
 
 export default function ItemModal({ activeModal, onClose, card }) {
   return (
-    <div className={`modal  ${activeModal === "preview" && "modal_opened"}`}>
-      <div className="modal__content modal__content_type_img">
+    <div
+      className={`modal  ${activeModal === "preview" && "modal_opened"}`}
+      onClick={onClose}
+    >
+      <div
+        className="modal__content modal__content_type_img"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <button
           className="modal__close modal__close-caption"
           type="button"
