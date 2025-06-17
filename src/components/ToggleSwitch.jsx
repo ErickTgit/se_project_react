@@ -7,7 +7,7 @@ function ToggleSwitch() {
     CurrentTemperatureUnitContext
   );
 
-  //Boolean used in react-switch-checkbox
+  //Boolean used in toggle__switch-checkbox
   const isOn = currentTemperatureUnit === "C";
 
   return (

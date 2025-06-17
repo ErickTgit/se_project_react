@@ -20,7 +20,7 @@ function Header({ handleAddClick, weatherData }) {
         {currentDate}, {weatherData.city}
       </p>
       <div className="header__user-container">
-        <ToggleSwitch isOn={checked} handleToggle={handleChange} />
+        <ToggleSwitch isOn={checked} onhandleToggle={handleChange} />
         <button
           type="button"
           onClick={handleAddClick}

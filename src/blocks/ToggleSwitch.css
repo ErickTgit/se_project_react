@@ -39,7 +39,7 @@
 .toggle__switch-checkbox:checked
   + .toggle__switch-label
   .toggle__switch-button {
-  left: calc(100%);
+  left: calc(100% + 2px);
   transform: translateX(-100%);
 }
 

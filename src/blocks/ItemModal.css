@@ -1,6 +1,6 @@
 .modal__content_type_img {
   min-height: 610px;
-  padding: 0;
+  padding: 0 !important;
   border-radius: 10px;
   max-width: 498px;
 }
