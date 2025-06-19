@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import "../blocks/App.css";
 import Header from "./Header";
 import Main from "./Main.jsx";
+import ConfirmDeleteModal from "./ConfirmDeleteModal.jsx";
 import { Profile } from "./Profile.jsx";
 import ItemModal from "./ItemModal.jsx";
 import { geolocation } from "../utils/geolocation";
@@ -11,6 +12,7 @@ import { getWeather, filterWeatherData } from "../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext.js";
 import Footer from "./Footer.jsx";
 import AddItemModal from "./AddItemModal.jsx";
+import { getItems } from "../utils/api.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -29,6 +31,17 @@ function App() {
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
+  };
+
+  const handleDeleteCard = (id) => {
+    setClothingItems((prevItems) =>
+      prevItems.filter((item) => item._id !== id)
+    );
+    setActiveModal("");
+  };
+
+  const handleDeleteCardClick = () => {
+    setActiveModal("confirm-delete");
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
@@ -55,6 +68,14 @@ function App() {
 
   useEffect(() => {
     geolocation(setCoords);
+  }, []);
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -127,6 +148,14 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           onClose={handleCloseModal}
+          handleDelete={handleDeleteCardClick}
+        />
+
+        <ConfirmDeleteModal
+          isOpen={activeModal === "confirm-delete"}
+          onCancel={handleCloseModal}
+          onClose={handleCloseModal}
+          onConfirm={() => handleDeleteCard(selectedCard._id)}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>
