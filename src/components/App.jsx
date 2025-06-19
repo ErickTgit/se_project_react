@@ -12,7 +12,7 @@ import { getWeather, filterWeatherData } from "../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext.js";
 import Footer from "./Footer.jsx";
 import AddItemModal from "./AddItemModal.jsx";
-import { getItems } from "../utils/api.js";
+import { getItems, addItem } from "../utils/api.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -23,7 +23,7 @@ function App() {
   const [coords, setCoords] = useState(null);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   //Event Handlers
@@ -34,10 +34,14 @@ function App() {
   };
 
   const handleDeleteCard = (id) => {
-    setClothingItems((prevItems) =>
-      prevItems.filter((item) => item._id !== id)
-    );
-    setActiveModal("");
+    deleteItem(id)
+      .then(() => {
+        setClothingItems((prevItems) =>
+          prevItems.filter((item) => item._id !== id)
+        );
+        setActiveModal("");
+      })
+      .catch((err) => console.error("Error deleting item:", err));
   };
 
   const handleDeleteCardClick = () => {
@@ -45,13 +49,14 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    setClothingItems((prevItems) => [
-      { name, link: imageUrl, weather, _id: newId },
-      ...prevItems,
-    ]);
+    const newItem = { name, imageUrl, weather };
 
-    handleCloseModal();
+    addItem(newItem)
+      .then((createdItem) => {
+        setClothingItems((prevItems) => [createdItem, ...prevItems]);
+        handleCloseModal();
+      })
+      .catch((err) => console.error("Error adding item:", err));
   };
 
   const handleAddClick = () => {
@@ -72,10 +77,8 @@ function App() {
 
   useEffect(() => {
     getItems()
-      .then((data) => {
-        console.log(data);
-      })
-      .catch(console.error);
+      .then(setClothingItems)
+      .catch((err) => console.error("Error fetching items:", err));
   }, []);
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-import { defaultClothingItems } from "../utils/const";
 import ItemCard from "./ItemCard";
 
 const ClothingSection = ({
