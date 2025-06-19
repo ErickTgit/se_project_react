@@ -1,5 +1,5 @@
 import Sidebar from "./Sidebar";
-import ClothingSection from "./ClothingSection";
+import ClothesSection from "./ClothesSection";
 import "../blocks/Profile.css";
 
 export const Profile = ({
@@ -22,7 +22,7 @@ export const Profile = ({
             + Add New
           </button>
         </div>
-        <ClothingSection
+        <ClothesSection
           weatherData={weatherData}
           clothingItems={clothingItems}
           handleCardClick={handleCardClick}

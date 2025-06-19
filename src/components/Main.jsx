@@ -1,5 +1,5 @@
 import WeatherCard from "./WeatherCard";
-import ClothingSection from "./ClothingSection";
+import ClothingSection from "./ClothesSection";
 import "../blocks/Main.css";
 import { useContext } from "react";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
