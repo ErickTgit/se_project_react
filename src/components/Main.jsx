@@ -1,5 +1,5 @@
 import WeatherCard from "./WeatherCard";
-import ClothingSection from "./ClothesSection";
+import ClothesSection from "./ClothesSection";
 import "../blocks/Main.css";
 import { useContext } from "react";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
@@ -15,7 +15,7 @@ function Main({ weatherData, clothingItems, handleCardClick }) {
           Today is {weatherData.temp[currentTemperatureUnit]}&deg;{" "}
           {currentTemperatureUnit} / You may want to wear:
         </p>
-        <ClothingSection
+        <ClothesSection
           weatherData={weatherData}
           clothingItems={clothingItems}
           handleCardClick={handleCardClick}

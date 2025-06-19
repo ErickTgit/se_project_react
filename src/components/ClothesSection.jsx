@@ -1,7 +1,7 @@
 import ItemCard from "./ItemCard";
 import "../blocks/ClothesSection.css";
 
-const ClothingSection = ({
+const ClothesSection = ({
   weatherData,
   clothingItems,
   handleCardClick,
@@ -21,4 +21,4 @@ const ClothingSection = ({
   );
 };
 
-export default ClothingSection;
+export default ClothesSection;
