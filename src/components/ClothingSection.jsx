@@ -1,4 +1,5 @@
 import ItemCard from "./ItemCard";
+import "../blocks/ClothingSection.css";
 
 const ClothingSection = ({
   weatherData,
