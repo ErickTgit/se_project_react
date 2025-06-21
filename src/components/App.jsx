@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { APIkey, defaultClothingItems } from "../utils/const.js";
+import { APIkey, defaultClothingItems } from "../utils/constants.js";
 import { Routes, Route } from "react-router-dom";
 import "../blocks/App.css";
 import Header from "./Header";
@@ -89,7 +89,7 @@ function App() {
           setWeatherData(filteredData);
         })
         .catch(() => {
-          console.error;
+          console.error("Failed to fetch weather data: ", err);
         });
     }
   }, [coords]);

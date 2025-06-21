@@ -1,4 +1,4 @@
-import { geolocationOptions } from "./const";
+import { geolocationOptions } from "./constants";
 
 const fallbackCoords = {
   latitude: 40.7128,
